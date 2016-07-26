@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{ecfb7af0-b54a-491e-b8a5-5895f9b4ac92}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{9503dff5-a62f-43da-982c-4c2fb630a68a}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Header Files\Qts">
+      <UniqueIdentifier>{aed6a05e-640d-4c23-a786-1a936b7adf01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\trackers">
+      <UniqueIdentifier>{2f661bc4-7374-4657-962a-0820d1973b18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Qts">
+      <UniqueIdentifier>{90f0a522-00cc-4df8-972d-4d8189098bea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\trackers">
+      <UniqueIdentifier>{6407ce41-f767-4600-902d-750d6ec7393a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GeneratedFiles\Debug\moc_mainwindow.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_mainwindow.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_streamthread.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_streamthread.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_viewqt.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_viewqt.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\itf\trackers\buffers.cpp">
+      <Filter>Source Files\trackers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\itf\trackers\pointTracker.cpp">
+      <Filter>Source Files\trackers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\itf\trackers\targetfinder.cpp">
+      <Filter>Source Files\trackers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\itf\trackers\utils.cpp">
+      <Filter>Source Files\trackers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trackerGUI\src\Qts\main.cpp">
+      <Filter>Source Files\Qts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trackerGUI\src\Qts\mainwindow.cpp">
+      <Filter>Source Files\Qts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trackerGUI\src\Qts\modelsqt.cpp">
+      <Filter>Source Files\Qts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trackerGUI\src\Qts\streamthread.cpp">
+      <Filter>Source Files\Qts</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\trackerGUI\src\Qts\viewqt.cpp">
+      <Filter>Source Files\Qts</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="trackervs64.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="trackervs64.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\trackerGUI\includes\Qts\mainwindow.h">
+      <Filter>Header Files\Qts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\trackerGUI\includes\Qts\streamthread.h">
+      <Filter>Header Files\Qts</Filter>
+    </CustomBuild>
+    <CustomBuild Include="..\..\trackerGUI\includes\Qts\viewqt.h">
+      <Filter>Header Files\Qts</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\itf\trackers\buffers.h">
+      <Filter>Header Files\trackers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\itf\trackers\buffgpu.h">
+      <Filter>Header Files\trackers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\itf\trackers\gpucommon.hpp">
+      <Filter>Header Files\trackers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\itf\trackers\trackers.h">
+      <Filter>Header Files\trackers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\itf\trackers\trackertype.h">
+      <Filter>Header Files\trackers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\itf\trackers\utils.h">
+      <Filter>Header Files\trackers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\trackerGUI\includes\Qts\modelsqt.h">
+      <Filter>Header Files\Qts</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CudaCompile Include="..\..\src\itf\trackers\cudautils.cu">
+      <Filter>Source Files\trackers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\src\itf\trackers\buffgpu.cu">
+      <Filter>Source Files\trackers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\src\itf\trackers\pointTracker.cu">
+      <Filter>Source Files\trackers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\src\itf\trackers\targetfinder.cu">
+      <Filter>Source Files\trackers</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\src\itf\trackers\tracks.cu">
+      <Filter>Source Files\trackers</Filter>
+    </CudaCompile>
+  </ItemGroup>
+</Project>

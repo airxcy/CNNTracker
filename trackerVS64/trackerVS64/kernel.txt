@@ -1,0 +1,59 @@
+		result += sobelFilter[0] * volume[((zs[0] * fh + ys[0])*fw + xs[0])*3];
+		result += sobelFilter[1] * volume[((zs[0] * fh + ys[0])*fw + xs[1])*3];
+		result += sobelFilter[2] * volume[((zs[0] * fh + ys[0])*fw + xs[2])*3];
+		result += sobelFilter[3] * volume[((zs[0] * fh + ys[1])*fw + xs[0])*3];
+		result += sobelFilter[4] * volume[((zs[0] * fh + ys[1])*fw + xs[1])*3];
+		result += sobelFilter[5] * volume[((zs[0] * fh + ys[1])*fw + xs[2])*3];
+		result += sobelFilter[6] * volume[((zs[0] * fh + ys[2])*fw + xs[0])*3];
+		result += sobelFilter[7] * volume[((zs[0] * fh + ys[2])*fw + xs[1])*3];
+		result += sobelFilter[8] * volume[((zs[0] * fh + ys[2])*fw + xs[2])*3];
+
+		result += sobelFilter[18] * volume[((zs[2] * fh + ys[0])*fw + xs[0])*3];
+		result += sobelFilter[19] * volume[((zs[2] * fh + ys[0])*fw + xs[1])*3];
+		result += sobelFilter[20] * volume[((zs[2] * fh + ys[0])*fw + xs[2])*3];
+		result += sobelFilter[21] * volume[((zs[2] * fh + ys[1])*fw + xs[0])*3];
+		result += sobelFilter[22] * volume[((zs[2] * fh + ys[1])*fw + xs[1])*3];
+		result += sobelFilter[23] * volume[((zs[2] * fh + ys[1])*fw + xs[2])*3];
+		result += sobelFilter[24] * volume[((zs[2] * fh + ys[2])*fw + xs[0])*3];
+		result += sobelFilter[25] * volume[((zs[2] * fh + ys[2])*fw + xs[1])*3];
+		result += sobelFilter[26] * volume[((zs[2] * fh + ys[2])*fw + xs[2])*3];
+		
+		result1 += sobelFilter[0] * volume[((zs[0] * fh + ys[0])*fw + xs[0])*3+1];
+		result1 += sobelFilter[1] * volume[((zs[0] * fh + ys[0])*fw + xs[1])*3+1];
+		result1 += sobelFilter[2] * volume[((zs[0] * fh + ys[0])*fw + xs[2])*3+1];
+		result1 += sobelFilter[3] * volume[((zs[0] * fh + ys[1])*fw + xs[0])*3+1];
+		result1 += sobelFilter[4] * volume[((zs[0] * fh + ys[1])*fw + xs[1])*3+1];
+		result1 += sobelFilter[5] * volume[((zs[0] * fh + ys[1])*fw + xs[2])*3+1];
+		result1 += sobelFilter[6] * volume[((zs[0] * fh + ys[2])*fw + xs[0])*3+1];
+		result1 += sobelFilter[7] * volume[((zs[0] * fh + ys[2])*fw + xs[1])*3+1];
+		result1 += sobelFilter[8] * volume[((zs[0] * fh + ys[2])*fw + xs[2])*3+1];
+
+		result1 += sobelFilter[18] * volume[((zs[2] * fh + ys[0])*fw + xs[0])*3+1];
+		result1 += sobelFilter[19] * volume[((zs[2] * fh + ys[0])*fw + xs[1])*3+1];
+		result1 += sobelFilter[20] * volume[((zs[2] * fh + ys[0])*fw + xs[2])*3+1];
+		result1 += sobelFilter[21] * volume[((zs[2] * fh + ys[1])*fw + xs[0])*3+1];
+		result1 += sobelFilter[22] * volume[((zs[2] * fh + ys[1])*fw + xs[1])*3+1];
+		result1 += sobelFilter[23] * volume[((zs[2] * fh + ys[1])*fw + xs[2])*3+1];
+		result1 += sobelFilter[24] * volume[((zs[2] * fh + ys[2])*fw + xs[0])*3+1];
+		result1 += sobelFilter[25] * volume[((zs[2] * fh + ys[2])*fw + xs[1])*3+1];
+		result1 += sobelFilter[26] * volume[((zs[2] * fh + ys[2])*fw + xs[2])*3+1];
+		
+		result2 += sobelFilter[0] * volume[((zs[0] * fh + ys[0])*fw + xs[0])*3+2];
+		result2 += sobelFilter[1] * volume[((zs[0] * fh + ys[0])*fw + xs[1])*3+2];
+		result2 += sobelFilter[2] * volume[((zs[0] * fh + ys[0])*fw + xs[2])*3+2];
+		result2 += sobelFilter[3] * volume[((zs[0] * fh + ys[1])*fw + xs[0])*3+2];
+		result2 += sobelFilter[4] * volume[((zs[0] * fh + ys[1])*fw + xs[1])*3+2];
+		result2 += sobelFilter[5] * volume[((zs[0] * fh + ys[1])*fw + xs[2])*3+2];
+		result2 += sobelFilter[6] * volume[((zs[0] * fh + ys[2])*fw + xs[0])*3+2];
+		result2 += sobelFilter[7] * volume[((zs[0] * fh + ys[2])*fw + xs[1])*3+2];
+		result2 += sobelFilter[8] * volume[((zs[0] * fh + ys[2])*fw + xs[2])*3+2];
+                                                              
+		result2 += sobelFilter[18] * volume[((zs[2] * fh + ys[0])*fw + xs[0])*3+2];
+		result2 += sobelFilter[19] * volume[((zs[2] * fh + ys[0])*fw + xs[1])*3+2];
+		result2 += sobelFilter[20] * volume[((zs[2] * fh + ys[0])*fw + xs[2])*3+2];
+		result2 += sobelFilter[21] * volume[((zs[2] * fh + ys[1])*fw + xs[0])*3+2];
+		result2 += sobelFilter[22] * volume[((zs[2] * fh + ys[1])*fw + xs[1])*3+2];
+		result2 += sobelFilter[23] * volume[((zs[2] * fh + ys[1])*fw + xs[2])*3+2];
+		result2 += sobelFilter[24] * volume[((zs[2] * fh + ys[2])*fw + xs[0])*3+2];
+		result2 += sobelFilter[25] * volume[((zs[2] * fh + ys[2])*fw + xs[1])*3+2];
+		result2 += sobelFilter[26] * volume[((zs[2] * fh + ys[2])*fw + xs[2])*3+2];

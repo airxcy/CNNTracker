@@ -1,0 +1,47 @@
+﻿  Compiling CUDA source file ..\..\src\itf\trackers\pointTracker.cu...
+  
+  C:\Users\xcy\Documents\CVProject\testKLT\lib\trackerVS64\trackerVS64>"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\bin\nvcc.exe" -gencode=arch=compute_20,code=\"sm_20,compute_20\" --use-local-env --cl-version 2013 -ccbin "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64"  -I.\GeneratedFiles -I. -IC:\Qt\5.4\msvc2013_64_opengl\include -I.\GeneratedFiles\Release -IC:\Qt\5.4\msvc2013_64_opengl\include\QtCore -IC:\Qt\5.4\msvc2013_64_opengl\include\QtGui -IC:\Qt\5.4\msvc2013_64_opengl\include\QtMultimedia -IC:\Qt\5.4\msvc2013_64_opengl\include\QtMultimediaWidgets -IC:\Qt\5.4\msvc2013_64_opengl\include\QtOpenGL -IC:\Qt\5.4\msvc2013_64_opengl\include\QtWidgets -I..\..\include -I..\..\trackerGUI\includes -IC:\opencv\build\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -IC:\cuDNN\include -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include" -I"C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v7.0\include"     --keep-dir x64\Release -maxrregcount=0  --machine 64 --compile -cudart static     -DUNICODE -DWIN32 -DWIN64 -DQT_DLL -DQT_NO_DEBUG -DNDEBUG -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_MULTIMEDIAWIDGETS_LIB -DQT_OPENGL_LIB -DQT_WIDGETS_LIB -Xcompiler "/EHsc /W1 /nologo /O2 /Zi  /MD  " -o x64\Release\pointTracker.cu.obj "C:\Users\xcy\Documents\CVProject\testKLT\lib\src\itf\trackers\pointTracker.cu" 
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(114): warning : variable "result1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(115): warning : variable "val1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(240): warning : variable "offset3" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(244): warning : variable "result1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(245): warning : variable "val1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(278): warning : variable "r" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(278): warning : variable "g" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(278): warning : variable "b" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(235): warning : variable "rgbframe" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(311): warning : variable "val1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(301): warning : variable "rgbframe" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(407): warning : variable "buffLen" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(435): warning : variable "h" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(510): warning : expected a statement
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(492): warning : variable "good" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(485): warning : variable "fp2" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(648): warning : expression has no effect
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(649): warning : variable "offset" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(722): warning : expression has no effect
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(758): warning : variable "ymid" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(758): warning : variable "xmid" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(114): warning : variable "result1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(115): warning : variable "val1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(240): warning : variable "offset3" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(244): warning : variable "result1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(245): warning : variable "val1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(278): warning : variable "r" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(278): warning : variable "g" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(278): warning : variable "b" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(235): warning : variable "rgbframe" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(311): warning : variable "val1" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(301): warning : variable "rgbframe" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(407): warning : variable "buffLen" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(435): warning : variable "h" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(510): warning : expected a statement
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(492): warning : variable "good" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(485): warning : variable "fp2" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(648): warning : expression has no effect
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(649): warning : variable "offset" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(722): warning : expression has no effect
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(758): warning : variable "ymid" was declared but never referenced
+C:/Users/xcy/Documents/CVProject/testKLT/lib/src/itf/trackers/pointTracker.cu(758): warning : variable "xmid" was declared but never referenced
+  pointTracker.cu
+  trackerVS64.vcxproj -> C:\Users\xcy\Documents\CVProject\testKLT\lib\trackerVS64\x64\Release\trackerVS64.exe

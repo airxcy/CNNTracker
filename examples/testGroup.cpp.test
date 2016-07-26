@@ -1,0 +1,217 @@
+#include <iostream>
+#include <fcntl.h>
+#include <stdint.h>
+#include <fstream>
+#include <istream>
+#include <sstream>
+#include <iterator>
+#include <opencv2/opencv.hpp>
+#include "itf/trackers/trackers.h"
+#include "itf/trackers/utils.h"
+using namespace cv;
+std::vector<int> x_idx;
+std::vector<int> y_idx;
+int width,height;
+pointTracker* tracker;
+float* persMap;
+cv::Mat segMat;
+void mydrawLine(cv::Mat& frame,int x0,int y0,int x1,int y1,unsigned char r,unsigned char g, unsigned char b,float alpha)
+{
+    unsigned char* framedata=frame.data;
+    int w=frame.size[1],h=frame.size[0];
+    if(x0<w&&y0<h&&x1<w&&y1<h)
+    {
+        x_idx.clear();
+        y_idx.clear();
+        int PointA[2]={x0,y0}, PointB[2]={x1,y1};;
+        int linelen = getLineIdx( x_idx,  y_idx, PointA, PointB);
+
+        float opac = (1-alpha);
+        for(int k=0;k<linelen;k++)
+        {
+            int x=x_idx[k],y=y_idx[k];
+            int offset=(y*w+x)*3;
+            unsigned char oldr=framedata[offset],oldg=framedata[offset+1],oldb=framedata[offset+2];
+            framedata[offset]=r*alpha+opac*oldr,framedata[offset+1]=g*alpha+opac*oldg,framedata[offset+2]=b*alpha+opac*oldb;
+        }
+    }
+}
+void setUpPers(std::string savefname)
+{
+    std::ifstream infile(savefname);
+    float* persMap=(float* )zalloc(height * width,sizeof(float));
+    memset(persMap,0,height*width*sizeof(float));
+    if (infile.is_open())
+    {
+        std::cout<<savefname<<std::endl;
+        std::string line;
+        int linecount=0;
+        std::getline(infile,line);
+        while(!line.empty())
+        {
+            std::istringstream is( line );
+
+            // /std::vector<float> vals=std::vector<float>( std::istream_iterator<float>(is),std::istream_iterator<float>() );
+            std::string token;
+            int i=0;
+            while(std::getline(is,token,','))
+            {
+                persMap[linecount*width+i]=stof(token);
+                i++;
+            }
+            //memcpy(persMap,vals.data(),width*sizeof(float));
+            linecount++;
+            std::getline(infile,line);
+        }
+        tracker->setUpPersMap(persMap);
+    }
+}
+
+void setUpROI(std::string savefname)
+{
+    std::ifstream infile(savefname);
+    if (infile.is_open())
+    {
+        std::cout<<savefname<<std::endl;
+        std::string line;
+        std::getline(infile,line);
+        int linecount=0;
+        std::vector<float> roivec;
+        while(!line.empty())
+        {
+            std::istringstream is( line );
+            std::string token;
+            std::getline(is,token,',');
+            roivec.push_back(stof(token));
+            std::getline(is,token,',');
+            roivec.push_back(stof(token));
+            linecount++;
+            std::getline(infile,line);
+        }
+        tracker->updateROICPU(roivec.data(),linecount);
+    }
+}
+void setupSegNeg(std::string savefname)
+{
+    std::ifstream infile(savefname);
+    if (infile.is_open())
+    {
+        std::cout<<savefname<<std::endl;
+        std::string line;
+        std::getline(infile,line);
+        int linecount=0;
+        std::vector<float> segneg;
+        while(!line.empty())
+        {
+            std::istringstream is( line );
+            std::string token;
+            std::getline(is,token,',');
+            std::cout<<token<<std::endl;
+            segneg.push_back(stoi(token));
+            std::getline(is,token,',');
+            std::cout<<token<<std::endl;
+            segneg.push_back(stoi(token));
+            linecount++;
+            std::getline(infile,line);
+        }
+        std::cout<<"done"<<std::endl;
+        tracker->updateSegNeg(segneg.data(),linecount);
+    }
+}
+void updateSegCPU(std::string imgpath)
+{
+    if(segMat.empty())
+    {
+        unsigned char* ptr = new unsigned char[width*height];
+        segMat = Mat(height,width,CV_8UC1,ptr);
+    }
+    Mat segFrame =  imread(imgpath);
+    cvtColor(segFrame,segMat,CV_BGR2GRAY);
+    tracker->updateSegCPU(segMat.data);
+}
+
+int main(int argc, char *argv[]) {
+    std::string fname;
+    if(argc>1)
+    {
+        fname = argv[1];
+        //std::cout<<fname<<std::endl;
+    }
+    else
+    {
+        std::cout<<"usage: program full/path/to/video/file.(mp4/avi/mkv...)"<<std::endl;
+        exit(0);
+    }
+
+    cv::VideoCapture cap;
+    cap.open(fname);
+    cv::Mat frame;
+    cap>>frame;
+    //char strbuff[100];
+    int frameidx=0;
+    x_idx.reserve(100);
+    y_idx.reserve(100);
+    tracker = new pointTracker();
+    int l0,t0,r0,b0,l1,t1,r1,b1;
+    l0=906,t0=188,r0=926,b0=212,l1=1005,t1=677,r1=1035,b1=724;
+    //l0=944,t0=221,r0=966,b0=247,l1=1009,t1=739,r1=1104,b1=927;
+    width=frame.size[1],height =frame.size[0];
+    tracker->init(width,height,frame.data,1024);
+    std::string persfname = "/home/cyxia/globalCenter/globalCenter_avi_persMap.csv";
+    std::string roifname = "/home/cyxia/globalCenter/globalCenter_avi_ROI3.csv";
+    std::string segNegFname = "/home/cyxia/globalCenter/globalCenter_avi_segNeg.csv";
+    setUpPers(persfname);
+    setUpROI(roifname);
+    setupSegNeg(segNegFname);
+
+    cv::namedWindow("src");
+   
+    cv::Mat drawFrame;
+    frame.copyTo(drawFrame);
+
+    int nFeatures=tracker->nFeatures;
+    std::vector<FeatBuff>& klttrkvec=tracker->trackBuff;
+    Tracks* tracks = tracker->tracksGPU;
+    int x0,y0,x1,y1;
+    cv::Point2i  pt1,pt2;
+    while(!frame.empty())
+    {
+        tracker->updateAframe((unsigned char*)frame.data,frameidx);
+        
+        frame.copyTo(drawFrame);
+        /** draw Feature Points **/
+        for(int i=0;i<nFeatures;i++)
+        {
+            //std::cout<<"nFeatures:"<<i<<std::endl;
+            FeatBuff& klttrk= klttrkvec[i];
+            unsigned char r=150,g=150,b=150;
+            x1=klttrk.cur_frame_ptr->x,y1=klttrk.cur_frame_ptr->y;
+            /** draw Feature Point Association**/
+            if(tracks->getLen(i)>0)
+            {
+				FeatPts* pg = tracks->getPtr(i);
+				float xg=pg->x,yg=pg->y;
+				int trklen = tracks->getLen(i);
+	            for (int j = 1; j < trklen; j++)
+	            {
+                    x1=tracks->getPtr(i,j)->x,y1=tracks->getPtr(i,j)->y;
+                    x0=tracks->getPtr(i,j-1)->x,y0=tracks->getPtr(i,j-1)->y;
+                    int denseval = j/(trklen+0.5)*255;
+                    int indcator = (denseval) > 255;
+                    int alpha = indcator * 255 + (1 - indcator)*(255-denseval);
+					mydrawLine(drawFrame,x1, y1, x0, y0,255,255,255,alpha/255.5);
+	            }
+            }
+        }
+        // std::cout<<"here"<<std::endl;
+    	cv::imshow("src", drawFrame);
+        cv::waitKey(1);
+        cap>>frame;
+        frameidx++;
+
+        //std::cout<<frameidx<<std::endl;
+    }
+    //std::cout<<"done"<<std::endl;
+    delete tracker;
+    return 0;
+}

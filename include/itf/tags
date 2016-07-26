@@ -1,0 +1,85 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+CAFFE_COMMON_HPP_	common.hpp	2;"	d
+CAFFE_CUDA_NUM_THREADS	common.hpp	/^    const int CAFFE_CUDA_NUM_THREADS = 1024;$/;"	m	namespace:itf
+CAFFE_CUDA_NUM_THREADS	common.hpp	/^    const int CAFFE_CUDA_NUM_THREADS = 512;$/;"	m	namespace:itf
+CAFFE_GET_BLOCKS	common.hpp	/^inline int CAFFE_GET_BLOCKS(const int N) {$/;"	f	namespace:itf	signature:(const int N)
+CAFFE_TEST_GRADIENT_CHECK_UTIL_H_	test/test_gradient_check_util.hpp	2;"	d
+CAFFE_TEST_TEST_CAFFE_MAIN_HPP_	test/test_itf_main.hpp	4;"	d
+CUBLAS_CHECK	common.hpp	48;"	d
+CUDA_CHECK	common.hpp	41;"	d
+CUDA_KERNEL_LOOP	common.hpp	63;"	d
+CUDA_POST_KERNEL_CHECK	common.hpp	69;"	d
+CURAND_CHECK	common.hpp	55;"	d
+CheckGradient	test/test_gradient_check_util.hpp	/^  void CheckGradient(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom,$/;"	f	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom = -1)
+CheckGradientEltwise	test/test_gradient_check_util.hpp	/^  void CheckGradientEltwise(Layer<Dtype>* layer,$/;"	p	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top)
+CheckGradientEltwise	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientEltwise(Layer<Dtype>* layer,$/;"	f	class:caffe::GradientChecker	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top)
+CheckGradientExhaustive	test/test_gradient_check_util.hpp	/^  void CheckGradientExhaustive(Layer<Dtype>* layer,$/;"	p	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom = -1)
+CheckGradientExhaustive	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientExhaustive(Layer<Dtype>* layer,$/;"	f	class:caffe::GradientChecker	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom)
+CheckGradientNet	test/test_gradient_check_util.hpp	/^  void CheckGradientNet(const Net<Dtype>& net,$/;"	p	class:caffe::GradientChecker	access:public	signature:(const Net<Dtype>& net, const vector<Blob<Dtype>*>& input)
+CheckGradientNet	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientNet($/;"	f	class:caffe::GradientChecker	signature:( const Net<Dtype>& net, const vector<Blob<Dtype>*>& input)
+CheckGradientSingle	test/test_gradient_check_util.hpp	/^  void CheckGradientSingle(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom,$/;"	p	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom, int top_id, int top_data_id, bool element_wise = false)
+CheckGradientSingle	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientSingle(Layer<Dtype>* layer,$/;"	f	class:caffe::GradientChecker	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom, int top_id, int top_data_id, bool element_wise)
+DISABLE_COPY_AND_ASSIGN	common.hpp	/^  DISABLE_COPY_AND_ASSIGN(Itf);$/;"	p	class:itf::Itf	access:private	signature:(Itf)
+DISABLE_COPY_AND_ASSIGN	common.hpp	24;"	d
+GetObjAndGradient	test/test_gradient_check_util.hpp	/^  Dtype GetObjAndGradient(vector<Blob<Dtype>*>* top, int top_id = -1,$/;"	p	class:caffe::GradientChecker	access:protected	signature:(vector<Blob<Dtype>*>* top, int top_id = -1, int top_data_id = -1)
+GetObjAndGradient	test/test_gradient_check_util.hpp	/^Dtype GradientChecker<Dtype>::GetObjAndGradient(vector<Blob<Dtype>*>* top,$/;"	f	class:caffe::GradientChecker	signature:(vector<Blob<Dtype>*>* top, int top_id, int top_data_id)
+GradientChecker	test/test_gradient_check_util.hpp	/^  GradientChecker(const Dtype stepsize, const Dtype threshold,$/;"	f	class:caffe::GradientChecker	access:public	signature:(const Dtype stepsize, const Dtype threshold, const unsigned int seed = 1701, const Dtype kink = 0., const Dtype kink_range = -1)
+GradientChecker	test/test_gradient_check_util.hpp	/^class GradientChecker {$/;"	c	namespace:caffe
+INSTANTIATE_CLASS	common.hpp	30;"	d
+ITF_Logging	common.hpp	/^  static void ITF_Logging();$/;"	p	class:itf::Itf	access:public	signature:()
+Itf	common.hpp	/^  Itf();$/;"	p	class:itf::Itf	access:private	signature:()
+Itf	common.hpp	/^class Itf {$/;"	c	namespace:itf
+NOT_IMPLEMENTED	common.hpp	36;"	d
+caffe	test/test_gradient_check_util.hpp	/^namespace caffe {$/;"	n
+caffe::GradientChecker	test/test_gradient_check_util.hpp	/^class GradientChecker {$/;"	c	namespace:caffe
+caffe::GradientChecker::CheckGradient	test/test_gradient_check_util.hpp	/^  void CheckGradient(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom,$/;"	f	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom = -1)
+caffe::GradientChecker::CheckGradientEltwise	test/test_gradient_check_util.hpp	/^  void CheckGradientEltwise(Layer<Dtype>* layer,$/;"	p	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top)
+caffe::GradientChecker::CheckGradientEltwise	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientEltwise(Layer<Dtype>* layer,$/;"	f	class:caffe::GradientChecker	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top)
+caffe::GradientChecker::CheckGradientExhaustive	test/test_gradient_check_util.hpp	/^  void CheckGradientExhaustive(Layer<Dtype>* layer,$/;"	p	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom = -1)
+caffe::GradientChecker::CheckGradientExhaustive	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientExhaustive(Layer<Dtype>* layer,$/;"	f	class:caffe::GradientChecker	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom)
+caffe::GradientChecker::CheckGradientNet	test/test_gradient_check_util.hpp	/^  void CheckGradientNet(const Net<Dtype>& net,$/;"	p	class:caffe::GradientChecker	access:public	signature:(const Net<Dtype>& net, const vector<Blob<Dtype>*>& input)
+caffe::GradientChecker::CheckGradientNet	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientNet($/;"	f	class:caffe::GradientChecker	signature:( const Net<Dtype>& net, const vector<Blob<Dtype>*>& input)
+caffe::GradientChecker::CheckGradientSingle	test/test_gradient_check_util.hpp	/^  void CheckGradientSingle(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom,$/;"	p	class:caffe::GradientChecker	access:public	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom, int top_id, int top_data_id, bool element_wise = false)
+caffe::GradientChecker::CheckGradientSingle	test/test_gradient_check_util.hpp	/^void GradientChecker<Dtype>::CheckGradientSingle(Layer<Dtype>* layer,$/;"	f	class:caffe::GradientChecker	signature:(Layer<Dtype>* layer, vector<Blob<Dtype>*>* bottom, vector<Blob<Dtype>*>* top, int check_bottom, int top_id, int top_data_id, bool element_wise)
+caffe::GradientChecker::GetObjAndGradient	test/test_gradient_check_util.hpp	/^  Dtype GetObjAndGradient(vector<Blob<Dtype>*>* top, int top_id = -1,$/;"	p	class:caffe::GradientChecker	access:protected	signature:(vector<Blob<Dtype>*>* top, int top_id = -1, int top_data_id = -1)
+caffe::GradientChecker::GetObjAndGradient	test/test_gradient_check_util.hpp	/^Dtype GradientChecker<Dtype>::GetObjAndGradient(vector<Blob<Dtype>*>* top,$/;"	f	class:caffe::GradientChecker	signature:(vector<Blob<Dtype>*>* top, int top_id, int top_data_id)
+caffe::GradientChecker::GradientChecker	test/test_gradient_check_util.hpp	/^  GradientChecker(const Dtype stepsize, const Dtype threshold,$/;"	f	class:caffe::GradientChecker	access:public	signature:(const Dtype stepsize, const Dtype threshold, const unsigned int seed = 1701, const Dtype kink = 0., const Dtype kink_range = -1)
+caffe::GradientChecker::kink_	test/test_gradient_check_util.hpp	/^  Dtype kink_;$/;"	m	class:caffe::GradientChecker	access:protected
+caffe::GradientChecker::kink_range_	test/test_gradient_check_util.hpp	/^  Dtype kink_range_;$/;"	m	class:caffe::GradientChecker	access:protected
+caffe::GradientChecker::seed_	test/test_gradient_check_util.hpp	/^  unsigned int seed_;$/;"	m	class:caffe::GradientChecker	access:protected
+caffe::GradientChecker::stepsize_	test/test_gradient_check_util.hpp	/^  Dtype stepsize_;$/;"	m	class:caffe::GradientChecker	access:protected
+caffe::GradientChecker::threshold_	test/test_gradient_check_util.hpp	/^  Dtype threshold_;$/;"	m	class:caffe::GradientChecker	access:protected
+cublasGetErrorString	common.hpp	/^const char* cublasGetErrorString(cublasStatus_t error);$/;"	p	namespace:itf	signature:(cublasStatus_t error)
+cublas_handle	common.hpp	/^  inline static cublasHandle_t cublas_handle() { return Get().cublas_handle_; }$/;"	f	class:itf::Itf	access:public	signature:()
+cublas_handle_	common.hpp	/^  cublasHandle_t cublas_handle_;$/;"	m	class:itf::Itf	access:protected
+curandGetErrorString	common.hpp	/^const char* curandGetErrorString(curandStatus_t error);$/;"	p	namespace:itf	signature:(curandStatus_t error)
+curand_generator	common.hpp	/^  inline static curandGenerator_t curand_generator() {$/;"	f	class:itf::Itf	access:public	signature:()
+curand_generator_	common.hpp	/^  curandGenerator_t curand_generator_;$/;"	m	class:itf::Itf	access:protected
+itf	common.hpp	/^namespace itf {$/;"	n
+itf	test/test_itf_main.hpp	/^namespace itf {$/;"	n
+itf::CAFFE_CUDA_NUM_THREADS	common.hpp	/^    const int CAFFE_CUDA_NUM_THREADS = 1024;$/;"	m	namespace:itf
+itf::CAFFE_CUDA_NUM_THREADS	common.hpp	/^    const int CAFFE_CUDA_NUM_THREADS = 512;$/;"	m	namespace:itf
+itf::CAFFE_GET_BLOCKS	common.hpp	/^inline int CAFFE_GET_BLOCKS(const int N) {$/;"	f	namespace:itf	signature:(const int N)
+itf::Itf	common.hpp	/^class Itf {$/;"	c	namespace:itf
+itf::Itf::DISABLE_COPY_AND_ASSIGN	common.hpp	/^  DISABLE_COPY_AND_ASSIGN(Itf);$/;"	p	class:itf::Itf	access:private	signature:(Itf)
+itf::Itf::ITF_Logging	common.hpp	/^  static void ITF_Logging();$/;"	p	class:itf::Itf	access:public	signature:()
+itf::Itf::Itf	common.hpp	/^  Itf();$/;"	p	class:itf::Itf	access:private	signature:()
+itf::Itf::cublas_handle	common.hpp	/^  inline static cublasHandle_t cublas_handle() { return Get().cublas_handle_; }$/;"	f	class:itf::Itf	access:public	signature:()
+itf::Itf::cublas_handle_	common.hpp	/^  cublasHandle_t cublas_handle_;$/;"	m	class:itf::Itf	access:protected
+itf::Itf::curand_generator	common.hpp	/^  inline static curandGenerator_t curand_generator() {$/;"	f	class:itf::Itf	access:public	signature:()
+itf::Itf::curand_generator_	common.hpp	/^  curandGenerator_t curand_generator_;$/;"	m	class:itf::Itf	access:protected
+itf::Itf::~Itf	common.hpp	/^  ~Itf();$/;"	p	class:itf::Itf	access:public	signature:()
+itf::cublasGetErrorString	common.hpp	/^const char* cublasGetErrorString(cublasStatus_t error);$/;"	p	namespace:itf	signature:(cublasStatus_t error)
+itf::curandGetErrorString	common.hpp	/^const char* curandGetErrorString(curandStatus_t error);$/;"	p	namespace:itf	signature:(curandStatus_t error)
+kink_	test/test_gradient_check_util.hpp	/^  Dtype kink_;$/;"	m	class:caffe::GradientChecker	access:protected
+kink_range_	test/test_gradient_check_util.hpp	/^  Dtype kink_range_;$/;"	m	class:caffe::GradientChecker	access:protected
+main	test/test_itf_main.hpp	/^int main(int argc, char** argv);$/;"	p	signature:(int argc, char** argv)
+seed_	test/test_gradient_check_util.hpp	/^  unsigned int seed_;$/;"	m	class:caffe::GradientChecker	access:protected
+stepsize_	test/test_gradient_check_util.hpp	/^  Dtype stepsize_;$/;"	m	class:caffe::GradientChecker	access:protected
+threshold_	test/test_gradient_check_util.hpp	/^  Dtype threshold_;$/;"	m	class:caffe::GradientChecker	access:protected
+~Itf	common.hpp	/^  ~Itf();$/;"	p	class:itf::Itf	access:public	signature:()
