@@ -181,7 +181,7 @@ int CrowdTracker::init(int w, int h,unsigned char* framedata,int nPoints)
 
 
      groupsTrk = new GroupTracks();
-     maxGroupTrk=150;
+     maxGroupTrk=180;
      groupsTrk->init(maxGroupTrk);
 
      streams=std::vector<cudaStream_t>(MAXSTREAM);
@@ -215,6 +215,7 @@ int CrowdTracker::init(int w, int h,unsigned char* framedata,int nPoints)
         mergeIdx.push_back(std::vector<int>(0));
      }
      mergeBox=std::vector<BBox>(maxGroupTrk);
+     trkptscount = new MemBuff<int>(maxGroupTrk);
      /**  render **/
 
      renderMask=new MemBuff<unsigned char>(frame_width*frame_height,3);
@@ -332,11 +333,11 @@ int CrowdTracker::updateAframe(unsigned char* framedata, int fidx)
 
 
             updateGroupsTracks();
-            unsigned char* h_clrvec=clrvec->cpu_ptr();
-            for(int i=0;i<groupsTrk->numGroup;i++)
-            {
-                HSVtoRGB(h_clrvec+i*3,h_clrvec+i*3+1,h_clrvec+i*3+2,i/(maxgroupN+0.01)*360,1,1);
-            }
+//            unsigned char* h_clrvec=clrvec->cpu_ptr();
+//            for(int i=0;i<groupsTrk->numGroup;i++)
+//            {
+//                HSVtoRGB(h_clrvec+i*3,h_clrvec+i*3+1,h_clrvec+i*3+2,i/(maxgroupN+0.01)*360,1,1);
+//            }
             makeGroups();
 
             clrvec->SyncH2D();
@@ -350,7 +351,7 @@ int CrowdTracker::updateAframe(unsigned char* framedata, int fidx)
 
 
 
-    //Render(framedata);
+    Render(framedata);
     PersExcludeMask();
     cudaMemcpy(framedata,d_rgbframedata,frameSizeRGB,cudaMemcpyDeviceToHost);
     float duration = ( std::clock() - start ) / (float) CLOCKS_PER_SEC;

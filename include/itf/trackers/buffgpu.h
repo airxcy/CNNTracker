@@ -5,7 +5,7 @@
 #include <vector_types.h>
 #include <vector>
 
-#define TRK_BUFF_LEN 200
+#define TRK_BUFF_LEN 100
 
 template <typename ELEM_T> class BuffGPU
 {
@@ -238,8 +238,8 @@ public:
 class GroupTrack : public Group
 {
 public:
-    GroupTrack():Group(){inited=0;}
-    int len,buffLen,tailidx,headidx,inited;
+    GroupTrack():Group(){inited=0;hide=0;}
+    int len,buffLen,tailidx,headidx,inited,hide;
     void inline increPtr()
     {
         tailidx=(tailidx+1)%buffLen;

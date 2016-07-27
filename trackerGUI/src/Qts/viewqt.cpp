@@ -165,11 +165,12 @@ void TrkScene::drawBackground(QPainter * painter, const QRectF & rect)
              float dist=v.x*v.x+v.y*v.y;
              GroupTrack* trkptr=groupsTrk.getPtr(i);
              if((*groupsTrk.vacancy)[i]
-                     &&trkptr->updateCount<0.05
-                 //&&trkptr->updateCount/trkptr->len<0.07
+                     //&&trkptr->updateCount<0.05&&trkptr->len>10
+                 &&trkptr->updateCount/trkptr->len<0.05
+                     &&!(trkptr->updateCount>0.1&&(*tracker.trkptscount)[i]<3)
 //                     &&trkptr->updateCount<0.5&&dist>0.1&&
-                     &&(//(trkptr->trkType==KLT_TRK&&trkptr->len>20)
-                                          (trkptr->trkType==HEAD_TRK&&tracker.isLinked[i]))
+                     &&((trkptr->trkType==KLT_TRK&&trkptr->len>11&&gTrkCorr[i].size()<1)
+                                          ||(trkptr->trkType==HEAD_TRK&&tracker.isLinked[i]))
                      )
              {
                  linepen.setStyle(Qt::DashLine);

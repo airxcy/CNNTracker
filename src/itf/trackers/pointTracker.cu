@@ -1476,10 +1476,32 @@ void CrowdTracker::matchGroups()
     debuggingFile<<"match Time:"<<duration<<std::endl;
 
 }
-
+__global__ void groupsTrkPtsCount(GroupTrack* trkvec,int* vacancy,TracksInfo trkInfo,int *trkptscount)
+{
+    const int pIdx = threadIdx.x;
+    const int gIdx = blockIdx.x;
+    GroupTrack groups = trkvec[gIdx];
+    int nFeatures=groups.trkPtsNum;
+    const BBox gBBox= *groups.getCur_(groups.bBoxPtr);
+    FeatPts curPts=trkInfo.curTrkptr[pIdx];
+    float2 curVelo=trkInfo.curVeloPtr[pIdx];
+    trkptscount[gIdx]=0;
+    if(vacancy[gIdx]&&trkInfo.lenVec[pIdx]>0)
+    {
+        __shared__ int nPtsBuff[1];
+        nPtsBuff[0]=0;
+        __syncthreads();
+        if(curPts.x>gBBox.left&&curPts.x<gBBox.right&&curPts.y>gBBox.top&&curPts.y<gBBox.bottom)
+        {
+            atomicAdd(nPtsBuff,1);
+        }
+        __syncthreads();
+        trkptscount[gIdx]=nPtsBuff[0];
+    }
+}
 void CrowdTracker::GroupTrkCorrelate()
 {
-    int correlateLen=21;
+    int correlateLen=11;
     for(int i=0;i<groupsTrk->numGroup;i++)
     {
         GroupTrack* iTrk=groupsTrk->getPtr(i);
@@ -1599,7 +1621,7 @@ void CrowdTracker::GroupTrkCorrelate()
     //gTrkNb.setTo(0);
 
     int gTrkMinLen=5;
-    int checkLen=5;
+    int checkLen=1;
     for(int i=0;i<groupsTrk->numGroup;i++)
     {
         GroupTrack* iTrk=groupsTrk->getPtr(i);
@@ -1801,7 +1823,8 @@ void CrowdTracker::GroupTrkCorrelate()
             counter++;
         }
     }
-
+    groupsTrkPtsCount<<<groupsTrk->numGroup,nFeatures>>>(groupsTrk->groupTracks->gpu_ptr(),groupsTrk->vacancy->gpu_ptr(),trkInfo,trkptscount->gpu_ptr());
+    trkptscount->SyncD2H();
 }
 __global__ void applyFgMask(unsigned char* d_mask, unsigned char* d_fmask)
 {
@@ -2374,7 +2397,7 @@ __global__ void threshPersKernek(float* origin,unsigned char* binary,float* pers
     const int offset = y*fw+x;
     float val = origin[offset];
     float persVal=persmap[offset];
-    float persThresh =(maxVal-minVal)/(sqrt(persVal)+3)+minVal;
+    float persThresh =(maxVal-minVal)/(sqrt(persVal)+3)*2+minVal;
     binary[offset]=(val>persThresh)*255;
 
 }
@@ -2431,13 +2454,13 @@ void CrowdTracker::detectHead()
     mstatsv->SyncH2D();
     mcentroidsv->SyncH2D();
     std::cout<<"Size:"<<nHeadLabel<<std::endl;
-//    unsigned char* h_clrvec=clrvec->cpu_ptr();
-//    for(int i=0;i<nHeadLabel;i++)
-//    {
-//        HSVtoRGB(h_clrvec+i*3,h_clrvec+i*3+1,h_clrvec+i*3+2,i/(nHeadLabel+0.01)*360,1,1);
-//    }
-//    clrvec->SyncH2D();
-    //std::cout<<components.size()<<std::endl;
+    unsigned char* h_clrvec=clrvec->cpu_ptr();
+    for(int i=0;i<nHeadLabel;i++)
+    {
+        HSVtoRGB(h_clrvec+i*3,h_clrvec+i*3+1,h_clrvec+i*3+2,i/(nHeadLabel+0.01)*360,1,1);
+    }
+    clrvec->SyncH2D();
+    std::cout<<components.size()<<std::endl;
     /*
     dim3 block(32, 32);
     dim3 grid(divUp(frame_width, 32), divUp(frame_height, 32));

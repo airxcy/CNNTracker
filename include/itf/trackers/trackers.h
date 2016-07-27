@@ -249,7 +249,9 @@ public:
     MemBuff<float>* gVeloCo;
     MemBuff<float>* gDistCo;
     MemBuff<int>* gNbCount;
+    MemBuff<int>* trkptscount;
     void GroupTrkCorrelate();
+
     std::vector< std::vector<int> > gTrkCorr;
     MemBuff<uchar>* gType;
     MemBuff<float>* gaussKernel;
